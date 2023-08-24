@@ -114,7 +114,7 @@
             src="./static/images/cover_page.png"
             class="interpolation-image"/>
       <h2 class="subtitle has-text-centered">
-        <span class="dnerf">LongDanceDiff</span>  generates natural dance sequences with spatial coherence conditioned on music.
+        <span class="dnerf">LongDanceDiff</span> generates natural dance sequences with temporal coherency and spatial diversity conditioned on music.
       </h2>
     </div>
   </div>
@@ -126,7 +126,7 @@
         <div class="publication-video">
           <video id="dance-video" autoplay muted loop playsinline height="100%">
             <!-- 支持视频编码格式为AVC(H264) -->
-            <source src="./static/videos/dance_demo.mp4"
+            <source src="./static/videos/demo_video.mp4"
                     type="video/mp4">
           </video>
         </div>
@@ -146,21 +146,15 @@
         <div class="content has-text-justified">
           <p>
             Dancing with music is always an essential human art form to express emotion. 
-            However, generating 3D realistic dances that synchronize with music requires significant effort. 
-            Therefore, researchers have searched for ways to generate diverse and high-quality dance sequences efficiently.
-          </p>
-          <p>
-            Due to the high temporal-spacial complexity, dance generation is challenging.
-            Existing methods suffer from the freezing problem when generating long-term dances caused by error accumulation and training-inference discrepancy.
-            To address this, we design a conditional diffusion model, <i>LongDanceDiff</i>, for this sequence-to-sequence long-term dance generation. Diffusion models can generate high-fidelity and diverse samples but also handle missing or noisy input data, making them ideal for solving the freezing problem.
-            LongDanceDiff contains a transformer-based diffusion model, where the input is a concatenation of music, past motions and noised future motions. This partial noising strategy leverages the full-attention mechanism and learns the dependencies among music and past motions.
-            Additionally, we use a global-position modulation layer and motion perceptual losses to learn spatial constraints, improving the smoothness and naturalness of motion generation. 
-          </p>
-          <p>
+            Due to the high temporal-spacial complexity, long-term 3D realist dance generation synchronized with music is challenging.
+            Existing methods suffer from the freezing problem when generating long-term dances due to error accumulation and training-inference discrepancy.
+            To address this, we design a conditional diffusion model, <i>LongDanceDiff</i>, for this sequence-to-sequence long-term dance generation, addressing the challenges of temporal coherency and spatial constraint. 
+            LongDanceDiff contains a transformer-based diffusion model, where the input is a concatenation of music, past motions, and noised future motions. This partial noising strategy leverages the full-attention mechanism and learns the dependencies among music and past motions.
+            To enhance the diversity of generated dance motions and mitigate the freezing problem, we introduce a mutual information minimization objective that regularizes the dependency between past and future motions. 
+            We also address common visual quality issues in dance generation, such as foot sliding and unsmooth motion, by incorporating spatial constraints through a Global-Trajectory Modulation (GTM) layer and motion perceptual losses, thereby improving the smoothness and naturalness of motion generation. 
             Extensive experiments demonstrate a significant improvement in our approach over the existing state-of-the-art methods.
             We plan to release our codes and models soon.
           </p>
-          
         </div>
       </div>
     </div>
@@ -190,7 +184,7 @@
                     preload
                     playsinline
                     width="100%">
-                <source src="./static/videos/gJB_sBM_cAll_d08_mJB5_ch0.mp4"
+                <source src="./static/videos/gBR.mp4"
                         type="video/mp4">
             </video>
             <video id="demo-video"
@@ -198,7 +192,7 @@
                     preload
                     playsinline
                     width="100%">
-                <source src="./static/videos/gJB_sBM_cAll_d08_mJB5_ch0.mp4"
+                <source src="./static/videos/gJB_sBM_cAll_d08_mJB5_ch01.mp4"
                         type="video/mp4">
             </video>
           </div>
@@ -209,7 +203,7 @@
                     preload
                     playsinline
                     width="100%">
-                <source src="./static/videos/gJB_sBM_cAll_d08_mJB5_ch0.mp4"
+                <source src="./static/videos/gMH_sBM_cAll_d22_mMH3_ch01_2.mp4"
                         type="video/mp4">
             </video>
             <video id="demo-video"
@@ -217,7 +211,18 @@
                     preload
                     playsinline
                     width="100%">
-                <source src="./static/videos/gJB_sBM_cAll_d08_mJB5_ch0.mp4"
+                <source src="./static/videos/gPO_sBM_cAll_d10_mPO1_ch02_2.mp4"
+                        type="video/mp4">
+            </video>
+          </div>
+
+          <div class="column">
+            <video id="demo-video"
+                    controls
+                    preload
+                    playsinline
+                    width="100%">
+                <source src="./static/videos/gWA_sBM_cAll_d25_mWA0_ch02_2.mp4"
                         type="video/mp4">
             </video>
           </div>
@@ -233,11 +238,13 @@
 <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
     <h2 class="title">BibTeX</h2>
-    <pre><code>@article{park2021nerfies,
-  author    = {Park, Keunhong and Sinha, Utkarsh and Barron, Jonathan T. and Bouaziz, Sofien and Goldman, Dan B and Seitz, Steven M. and Martin-Brualla, Ricardo},
-  title     = {记得修改},
-  journal   = {ICCV},
-  year      = {2021},
+    <pre><code>@misc{yang2023longdancediff,
+      title={LongDanceDiff: Long-term Dance Generation with Conditional Diffusion Model}, 
+      author={Siqi Yang and Zejun Yang and Zhisheng Wang},
+      year={2023},
+      eprint={2308.11945},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV}
 }</code></pre>
   </div>
 </section>
@@ -247,10 +254,10 @@
   <div class="container">
     <div class="content has-text-centered">
       <a class="icon-link"
-         href="./static/videos/nerfies_paper.pdf">
+         href="https://arxiv.org/pdf/2308.11945.pdf">
         <i class="fas fa-file-pdf"></i>
       </a>
-      <a class="icon-link" href="https://github.com/keunhong" class="external-link" disabled>
+      <a class="icon-link" href="https://github.com/LongDanceDiff" class="external-link" disabled>
         <i class="fab fa-github"></i>
       </a>
     </div>
@@ -262,14 +269,14 @@
                                                 href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
             Commons Attribution-ShareAlike 4.0 International License</a>.
           </p>
-          <p>
+          <!-- <p>
             This means you are free to borrow the <a
               href="https://github.com/nerfies/nerfies.github.io">source code</a> of this website,
             we just ask that you link back to this page in the footer.
             Please remember to remove the analytics code included in the header of the website which
             you do not want on your website.
           </p>
-        </div>
+        </div> -->
       </div>
     </div>
   </div>
